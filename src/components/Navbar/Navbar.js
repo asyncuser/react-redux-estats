@@ -1,17 +1,20 @@
-import React from 'react'
+import React from 'react';
+import style from './Navbar.css';
 
 const Navbar = () => {
     return(
-        <nav className="nav-wrapper black darken-3">
-            <div className="container">
-                <a href="/" className="brand-logo center">eStats</a>
-                <ul className="left">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/matches">Matches</a></li>
-                    <li><a href="/players">Players</a></li>
-                </ul>
-            </div>
-        </nav>
+        <div style={style} className="navbar-fixed">
+            <nav className="nav-wrapper navbar">
+                <div className="container">
+                    <a href="/" className="brand-logo center">[eStats]</a>
+                    <ul className="left">
+                        <li><a href="/">Main</a></li>
+                        <li><a href="/matches">Pro Matches</a></li>
+                        <li><a href="/players"> Pro Players</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     )
 };
 export default Navbar;

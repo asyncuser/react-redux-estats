@@ -1,13 +1,15 @@
 import axios from 'axios';
 import api from '../api/Api-configuration';
 
-const getData = () => dispatch =>{
-    const url = api.url;
+const getRecentMatches = ( steamId ) => dispatch => {
+    const url = api.matchesUrl + steamId + '/recentMatches';
     axios.get(url).then(response => {
         dispatch ({
-            type: 'GET_DATA',
+            type: 'GET_RECENT_MATCHES',
             payload: response.data
         });
+    }).catch(error => {
+        throw error
     });
 };
-export default getData;
+export default getRecentMatches;

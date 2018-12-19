@@ -1,0 +1,37 @@
+.main-container {
+    color: lightgray;
+}
+.search-input {
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.search-input input {
+    color: white;
+    border-color: #1e2235;
+}
+.search-input input[type=text]:focus {
+    color: lightgray;
+    border-bottom-color: lightblue;
+}
+.users-list-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: left;
+}
+.users-list-container li:nth-child(even) {
+    background-color: white;
+}
+.search-input button {
+    background-color: #61dafb;
+}
+.search-input button:hover {
+    background-color: cornflowerblue;
+}
+.search-input button:active {
+    background-color: white;
+}
+.users-table td {
+    text-align: left;
+}

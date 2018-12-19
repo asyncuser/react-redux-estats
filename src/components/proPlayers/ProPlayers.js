@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Person from './Person/Person';
-import getProPlayers from '../actions/getProPlayers';
+import ProPlayer from './ProPlayer';
+import getProPlayers from '../../actions/getProPlayers';
+import style from './ProPlayers.css';
 
 class ProPlayers extends Component {
     componentDidMount() {
+        this.props.getProPlayers()
     }
     render() {
         return(
-            <div>
+            <div style={style} className="pro-players-container">
                 <h3>ProPlayers</h3>
-                <button onClick={this.props.getProPlayers}>ClickMe</button>
-                {this.props.proPlayers.proPlayers.map((item, index) => {
-                    return (
-                        <Person key={index} data={item} id={index}/>
-                    )
-                })}
+                <table className="pro-players-table-container table-container">
+                    <thead className="table-head">
+                    <tr className="row">
+                        <th>Player</th>
+                        <th>Team</th>
+                        <th>Name</th>
+                    </tr>
+                    </thead>
+                        <tbody className="table-body">
+                        {this.props.proPlayers.proPlayers.map((item, index) => {
+                            return (
+                                <ProPlayer key={index} data={item} id={index}/>
+                            )
+                        })}
+                        </tbody>
+                </table>
             </div>
         )
     }

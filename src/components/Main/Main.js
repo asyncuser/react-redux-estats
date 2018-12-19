@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import Person from './Person';
+import Person from '../Person/Person';
 import { connect } from 'react-redux';
-import getData from '../actions/getData';
-import updateSearch from '../actions/updateSearch';
+import getData from '../../actions/getData';
+import updateSearch from '../../actions/updateSearch';
+import style from './Main.css';
 
 class Main extends Component{
     constructor(props) {
@@ -11,27 +12,35 @@ class Main extends Component{
     }
     render() {
         return(
-            <div>
-                <div className="">
+            <div style={style} className="main-container">
+                <h1>Track your in-game stats in real time!</h1>
+                <h4>Input user name and search for stats</h4>
+                <div className="search-input">
                     <input type="text" ref={this.input} onChange={this.props.updateSearch}/>
+                    <button className="waves-effect waves-teal btn-flat" onClick={() => this.props.getData(this.props.searchData.searchData)}>Search</button>
                 </div>
-                <button onClick={() => this.props.getData(this.props.searchData)}>GetData</button>
                 <div className="users-list-container">
-                    <ul>
-                        <li>
-                            {this.props.data.map((item, index) => {
+                    <table className="users-table table-container">
+                        <thead className="table-head">
+                        <tr className="row">
+                            <th>Users</th>
+                        </tr>
+                        </thead>
+                            <tbody className="table-body">
+                            {this.props.data.data.map((item, index) => {
                                 return (
                                     <Person key={index} data={item} id={index}/>
                                 )
                             })}
-                        </li>
-                    </ul>
+                            </tbody>
+                    </table>
                 </div>
             </div>
         )
     }
 }
 const mapStateToProps = state => {
+    console.log(state)
     return {
         searchData: state.searchData,
         data: state.data

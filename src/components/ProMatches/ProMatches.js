@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Match from './ProMatches/ProMatch';
-import getProMatches from '../actions/getProMatches';
-import style from './ProMatches/ProMatches.css';
+import Match from './ProMatch';
+import getProMatches from '../../actions/getProMatches';
+import style from './ProMatches.css';
 
 class ProMatches extends Component {
     componentDidMount() {
@@ -10,7 +10,7 @@ class ProMatches extends Component {
     }
     render() {
         return(
-            <div style={style}>
+            <div style={style} className="pro-matches-container">
                 <h3>ProMatches</h3>
                 <table className="table-container">
                     <thead className="table-head">
@@ -20,10 +20,11 @@ class ProMatches extends Component {
                         <th>TeamRadiant</th>
                         <th>TeamDire</th>
                         <th>League</th>
+                        <th>Winner</th>
                     </tr>
                     </thead>
                     <tbody className="table-body">
-                    {this.props.proMatches.map((item, index) => {
+                    {this.props.proMatches.proMatches.map((item, index) => {
                         return (
                             <Match key={index} data={item} id={index}/>
                         )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ProMatch = ( props ) => {
     return (
@@ -8,6 +8,7 @@ const ProMatch = ( props ) => {
                 <td className="column100 column3">{props.data.radiant_name !== null ? props.data.radiant_name : 'Team Radiant'}</td>
                 <td className="column100 column4">{props.data.dire_name !== null ? props.data.dire_name : 'Team Dire'}</td>
                 <td className="column100 column5">{props.data.league_name}</td>
+                <td className="column100 column5">{props.data.radiant_win === true ? (props.data.radiant_name !== null ? props.data.radiant_name : 'Team Radiant') : (props.data.dire_name !== null ? props.data.dire_name : 'Team Dire')}</td>
             </tr>
     )
 };

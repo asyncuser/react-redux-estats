@@ -1,0 +1,7 @@
+.user-head{
+    color: lightgray;
+}
+.user-head img {
+    border-radius: 50%;
+    margin-top: 20px;
+}
