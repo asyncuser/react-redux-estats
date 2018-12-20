@@ -40,7 +40,6 @@ class Main extends Component{
     }
 }
 const mapStateToProps = state => {
-    console.log(state)
     return {
         searchData: state.searchData,
         data: state.data

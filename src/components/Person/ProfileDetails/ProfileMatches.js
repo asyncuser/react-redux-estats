@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ProfileMatches = ( props ) => {
-    console.log(props)
     return (
         <tr>
             <td>{props.data.match_id}</td>
