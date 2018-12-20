@@ -1,3 +1,12 @@
+# ELEKS Front-Camp 2018
+
+* Course curator - [Volodymyr Shevchuk](https://github.com/dosandk)
+* Front-camp - [Facebook](https://www.facebook.com/groups/270300106928894)
+
+## Todo app
+
+[DEMO](https://shrouded-reaches-15892.herokuapp.com)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
