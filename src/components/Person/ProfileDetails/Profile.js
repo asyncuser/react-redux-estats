@@ -7,10 +7,19 @@ import style from './Player.css'
 import Zoom from 'react-reveal/Zoom';
 
 class Profile extends Component {
+
     componentDidMount() {
         this.props.getProfileData(this.props.location.state.data.account_id);
         this.props.getRecentMatches(this.props.location.state.data.account_id)
     }
+
+    getMatches = () => {
+         return this.props.recentMatches.recentMatches.map((item, index) => (
+                <UserMatches key={index} data={item}/>
+        ))
+    };
+
+
    render() {
        const profileData = this.props.profileData.profileData;
        return (
@@ -39,11 +48,7 @@ class Profile extends Component {
                            </thead>
                            <Zoom>
                            <tbody className="table-body">
-                           {this.props.recentMatches.recentMatches.map((item, index) => {
-                               return (
-                                   <UserMatches key={index} data={item}/>
-                               )
-                           })}
+                               {this.getMatches()}
                            </tbody>
                            </Zoom>
                        </table>

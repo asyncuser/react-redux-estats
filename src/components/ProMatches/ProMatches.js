@@ -5,11 +5,19 @@ import getProMatches from '../../actions/getProMatches';
 import style from './ProMatches.css';
 
 class ProMatches extends Component {
+
     componentDidMount() {
         this.props.getProMatches()
     }
+
+    getMatches = () => {
+       return this.props.proMatches.proMatches.map((item, index) => (
+            <Match key={index} data={item} id={index}/>
+        ))
+    };
+
     render() {
-        return(
+        return (
             <div style={style} className="pro-matches-container">
                 <h3>ProMatches</h3>
                 <table className="table-container">
@@ -24,11 +32,7 @@ class ProMatches extends Component {
                     </tr>
                     </thead>
                     <tbody className="table-body">
-                    {this.props.proMatches.proMatches.map((item, index) => {
-                        return (
-                            <Match key={index} data={item} id={index}/>
-                        )
-                    })}
+                        {this.getMatches()}
                     </tbody>
                 </table>
             </div>

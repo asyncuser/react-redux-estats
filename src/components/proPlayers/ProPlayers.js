@@ -5,11 +5,19 @@ import getProPlayers from '../../actions/getProPlayers';
 import style from './ProPlayers.css';
 
 class ProPlayers extends Component {
+
     componentDidMount() {
         this.props.getProPlayers()
     }
+
+    getPlayers = () => {
+        return this.props.proPlayers.proPlayers.map((item, index) => (
+            <ProPlayer key={index} data={item} id={index}/>
+        ))
+    };
+
     render() {
-        return(
+        return (
             <div style={style} className="pro-players-container">
                 <h3>ProPlayers</h3>
                 <table className="pro-players-table-container table-container">
@@ -21,11 +29,7 @@ class ProPlayers extends Component {
                     </tr>
                     </thead>
                         <tbody className="table-body">
-                        {this.props.proPlayers.proPlayers.map((item, index) => {
-                            return (
-                                <ProPlayer key={index} data={item} id={index}/>
-                            )
-                        })}
+                            {this.getPlayers()}
                         </tbody>
                 </table>
             </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Person from '../Person/Person';
+import Person from '../Person/ProfileListItem';
 import { connect } from 'react-redux';
 import getData from '../../actions/getData';
 import updateSearch from '../../actions/updateSearch';
@@ -10,8 +10,15 @@ class Main extends Component{
         super(props);
         this.input = React.createRef();
     }
+
+    getUsers = () => {
+        return this.props.data.data.map((item, index) => (
+                <Person key={index} data={item} id={index}/>
+            )
+        )};
+
     render() {
-        return(
+        return (
             <div style={style} className="main-container">
                 <h1>Track your in-game stats in real time!</h1>
                 <h4>Input user name and search for stats</h4>
@@ -27,11 +34,7 @@ class Main extends Component{
                         </tr>
                         </thead>
                             <tbody className="table-body">
-                            {this.props.data.data.map((item, index) => {
-                                return (
-                                    <Person key={index} data={item} id={index}/>
-                                )
-                            })}
+                                {this.getUsers()}
                             </tbody>
                     </table>
                 </div>

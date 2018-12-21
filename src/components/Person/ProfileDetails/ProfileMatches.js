@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileMatches = ( props ) => {
+const ProfileMatches = (props) => {
     return (
         <tr>
             <td>{props.data.match_id}</td>
